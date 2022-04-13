@@ -1,0 +1,566 @@
+input,
+textarea {
+  border: 1px solid #AFAFAF;
+  outline: none;
+}
+
+.main-container {
+ background-color: red;
+}
+
+/* Error message styling */
+.DateOfBirth-Error,
+.emailIdValidateError,
+.firstnameValidateError,
+.secondnameValidateError,
+.uploadPhotoValidateError,
+.contactNumberValidateError,
+.presentAddressValidateError,
+.permanentAddressValidateError {
+  font-size: 12px;
+  color: red;
+  padding-left: 30px;
+  font-family: "Nunito-Bold";
+}
+
+.emailIdValidateError,
+.firstnameValidateError,
+.presentAddressValidateError {
+  padding-left: 60px;
+}
+
+/* buttons for profile and reset in page */
+.mainSwitchButton-container {
+  background-color: #F9FBFF;
+   width: 260px;
+   margin-left: 41px;
+}
+
+.profile-ProfileBtn {
+  width: 234px;
+  height: 50px;
+  background: #47C4C3;
+  font-family: "Nunito-Bold";
+  border-radius: 25px 0px 0px 25px;
+  margin: 38px 0px 0px 27px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.profile-ResetBtn {
+  top: 233px;
+  left: 154px;
+  width: 234px;
+  height: 50px;
+  border-radius: 25px 0px 0px 25px;
+  text-align: center;
+  font-size: 16px;
+  color: #47C4C3;
+  margin-left: 27px;
+  margin-top: 21px;
+  font-family: "Nunito-Bold";
+  background: #F9FBFF;
+  border: none;
+}
+
+/* The data form of profile page */
+
+.whole-dataOfProfile {
+  background-color: #FFFFFF;
+  margin-left: 300px;
+  width: 950px;
+  height: max-content;
+  padding-bottom: 40px;
+}
+
+.text-Profile {
+  margin-top: 38px;
+  font: 22px Nunito;
+  color: #333333;
+  margin-left: 58px;
+}
+
+.text-PersonalDetails {
+  font: 16px Nunito;
+  color: #333333;
+  margin: 18px 0px 0px 58px;
+}
+
+.text-Firstname {
+  font: 14px Nunito;
+  color: #666666;
+  padding: 20px 0px 10px 58px;
+}
+
+.text-Secondname {
+  font: 14px Nunito;
+  color: #666666;
+  padding-left: 42px;
+}
+
+.input-Firstname {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  box-sizing: border-box;
+  padding: 10px 0px 10px 10px;
+  margin-left: 58px;
+}
+
+.input-Secondname {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  padding: 10px 0px 10px 10px;
+  margin-left: 30px;
+}
+
+.text-Gender {
+  font: 14px Nunito;
+  color: #666666;
+  padding: 20px 0px 5px 60px;
+}
+
+.text-DateOfBirth {
+  font: 14px Nunito;
+  color: #666666;
+  padding-left: 42px;
+}
+
+/* Radio button styling */
+.textRadio-Male {
+  margin-left: 63px;
+}
+
+.textRadio-Female {
+  margin-left: 3px;
+}
+
+.textRadio-Others {
+  margin-left: -40px;
+}
+
+.container1 {
+  display: inline-flex;
+  position: relative;
+  margin-top: 8px;
+  padding-left: 33px;
+  padding-right: 25px;
+  font-family: "Nunito-Regular";
+  font-size: 14px;
+  cursor: pointer;
+  color: #000000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  border: 1px solid #00A7A5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+.container1 input:checked~.checkmark:after {
+  display: block;
+  padding: 5.9px;
+  margin-top: -4px;
+  margin-left: -4px;
+  background-color: #00A7A5;
+  cursor: pointer;
+}
+
+.container1 .checkmark:after {
+  top: 10px;
+  left: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.textRadio-Male {
+  font: 14px Nunito;
+  color: #000000;
+  margin-left: 60px;
+}
+
+.textRadio-Female {
+  font: 14px Nunito;
+  color: #000000;
+  margin-left: 0px;
+}
+
+.textRadio-Others {
+  font: 14px Nunito;
+  color: #000000;
+  margin-right: 60px;
+}
+
+.inputBox-Date {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  padding: 12px 0px 11px 11px;
+  margin-left: 30px;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-image: none;
+}
+
+.text-EmailId {
+  font: 14px Nunito;
+  color: #666666;
+  margin: 22px 0px 5px 0px;
+  padding-left: 72px;
+}
+
+.text-ContactNumber {
+  font: 14px Nunito;
+  color: #666666;
+  margin: 20px 0px 5px 0px;
+  padding-left: 41px;
+}
+
+.input-Email {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  padding: 10px 0px 10px 10px;
+  margin-left: 59px;
+}
+
+.input-ContactNumber {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  padding: 10px 0px 10px 10px;
+  margin-left: 30px;
+}
+
+.text-PresentAddress {
+  font: 14px Nunito;
+  color: #666666;
+  margin: 20px 0px 5px 0px;
+  padding-left: 72px;
+}
+
+.text-permanentAddress {
+  font: 14px Nunito;
+  color: #666666;
+  margin: 20px 0px 5px 0px;
+  padding-left: 42px;
+}
+
+.input-PresentAddress {
+  width: 397px;
+  height: 127px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  resize: none;
+  padding: 10px 0px 10px 10px;
+  margin-left: 58px;
+}
+
+.input-PermanentAddress {
+  width: 397px;
+  height: 127px;
+  background: #FFFFFF;
+  border: 0.5px solid #AFAFAF;
+  resize: none;
+  padding: 10px 0px 10px 10px;
+  margin-left: 30px;
+}
+
+/* Custom checkbox for same address checkbox */
+.checkBoxContainer {
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  border: 1px solid #00A7A5;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  left: 496px;
+}
+
+.checkBoxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.Tickmark {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  height: 16px;
+  width: 16px;
+}
+
+.checkBoxContainer input:checked~.Tickmark {
+  background-color: #00A7A5;
+}
+
+.Tickmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkBoxContainer input:checked~.Tickmark:after {
+  display: block;
+}
+
+.checkBoxContainer .Tickmark:after {
+  left: 5px;
+  top: 0px;
+  width: 5.5px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.text-SameAddress {
+  font: 12px Nunito;
+  color: #666666;
+  margin-left: 28px;
+  width: max-content;
+  position: absolute;
+}
+
+
+.text-UpoadPhoto {
+  font: 14px Nunito;
+  color: #666666;
+  margin: 20px 0px 5px 0px;
+  padding-left: 72px;
+}
+
+.input-UploadPhoto {
+  width: 397px;
+  height: 39px;
+  background: #FFFFFF 0% 0%;
+  border: 0.5px solid #AFAFAF;
+  padding: 10px 0px 10px 10px;
+  margin-left: 58px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.browseLabelForFileBox {
+  position: absolute;
+  margin: 13px 39px 13px -87px;
+  padding-right: 7px;
+  padding-left: 5px;
+  font: bold 12px/16px Nunito;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.fileImageSVG {
+  margin-left: 5px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+  display: none;
+}
+
+.pregressSection {
+  margin-left: 48px;
+  margin-top: 5px;
+  font-family: Nunito;
+  color: #666666;
+}
+
+#progressBarLabel {
+  visibility: hidden;
+}
+
+.progress {
+  margin-left: -40px;
+  margin-top: 5px;
+  width: 283px;
+  height: 7px;
+  visibility: hidden;
+  overflow: visible;
+  background-color: #AFAFAF;
+}
+
+.fileUploadProgressBar {
+  overflow: visible;
+  height: 7px;
+  background-color: #47C463; 
+  margin-left: -17px;
+}
+
+#fileUploadProgressBar {
+  visibility: hidden;
+}
+
+.percentageSectionForFileUpload {
+  position: absolute;
+  margin-left: 362px;
+  margin-top: 1px;
+}
+
+#percentageSectionForFileUpload {
+  visibility: hidden;
+}
+
+.profile-SaveBtn {
+  border: 1px solid #00A7A5;
+  font: 14px Nunito;
+  color: #00A7A5;
+  padding: 12px 33px 9px 36px;
+  margin: 40px 0px 0px 662px;
+  background-color: #FFFFFF;
+}
+
+.profile-NextBtn {
+  background: #00A7A5;
+  border: none;
+  font: 14px Nunito;
+  color: #FFFFFF;
+  padding: 12px 34px 9px 36px;
+  margin-left: 20px;
+}
+
+.profile-NextBtn:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.profile-SaveBtn:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+/* POP-UP cotent styling for saving data to localstorage */
+.pop-upSuccessContent {
+  font-size: 27px;
+  color: #000000;
+  margin: 44px 0px 74px 143px;
+  font-family: Nunito;
+}
+
+.pop-upTickMarkImage {
+  position: absolute;
+  margin: 30px 0px 0px 61px;
+  width: 45px;
+}
+
+.pop-upCloseButton {
+  margin-left: 40%;
+  width: 95px;
+  height: 40px;
+  font-weight: bold;
+  color: #00A7A5;
+  border: 1px solid #00A7A5;
+}
+
+
+/* Media Query */
+
+@media (max-width : 1399px) {
+  .mainSwitchButton-container {
+    margin-left: -43px;
+  }
+
+  .whole-dataOfProfile {
+    margin-left: 210px;
+  }
+}
+
+@media (max-width : 1199px) {
+  .mainSwitchButton-container {
+    margin-left: -80px;
+  }
+
+  .whole-dataOfProfile {
+    margin-left: 127px;
+  }
+}
+
+@media (max-width : 1100px) {
+  .mainSwitchButton-container {
+    margin-left: -36px;
+  }
+
+  .whole-dataOfProfile {
+    margin-left: 223px;
+    width: 764px;
+  }
+
+  .input-Firstname,
+  .input-Secondname,
+  .inputBox-Date,
+  .input-ContactNumber,
+  .input-Email,
+  .input-PresentAddress,
+  .input-PermanentAddress,
+  .input-UploadPhoto {
+    width: 320px;
+  }
+
+  .profile-SaveBtn {
+    margin-left: 500px;
+  }
+
+  .progressBarLabel,
+  .percentageSectionForFileUpload {
+    font-size: 12px;
+  }
+
+  .percentageSectionForFileUpload {
+    margin-left: 290px;
+  }
+
+  .fileUploadProgressBar {
+    max-width: 200px;
+    margin-left: -25px
+  }
+
+  .checkBoxContainer {
+    margin-left: -83px;
+  }
+}

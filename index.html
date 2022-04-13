@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        /* .color1{background-color: red; min-height: 500px;}
+        .color2{background-color: blue; width: 830px;}
+        .color3{background-color: red;}
+        .color4{background-color: blue;}
+        .color5{background-color: red;}
+        .color6{background-color: blue}
+        .color7{background-color: red;}
+        .color8{background-color: blue;}
+        .color9{background-color: red;}
+        .color10{background-color: blue;}
+        .color11{background-color: red;}
+        .color12{background-color: blue;} */
+    </style>
+</head>
+<body>
+    <div class="container row">
+             <div class="col-3  main-container">
+                <div class="col-2">
+                  <div class="mainSwitchButton-container">
+                    <div class="profileButton"  >
+                      <button class="profile-ProfileBtn" id="profileIdBtn">profile</button>
+                    </div>
+                    <div class="resetPasswordButton"  >
+                      <button class="profile-ResetBtn" id="resetIdBtn">reset password</button>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        <div class="col-9 color2">
+            <div [formGroup]="profile_Form_Data"  >
+                <div class="headText-Profile">
+                  <label class="text-Profile">Profile</label>
+                </div>
+                <div class="headText-PersonalDetails">
+                  <label class="text-PersonalDetails">Personal Details</label>
+                </div>
+                <div class="profile-NameLabel">
+                  <label class="col-6 text-Firstname">First Name</label>
+                  <label class="col-6 text-Secondname">Second Name</label>
+                </div>
+                <div class="profile-NameInputBox">
+                  <div class="row">
+                    <div class="col-6">
+                      <div>
+                        <input type="text" class="input-Firstname" formControlName="Firstname" placeholder="John">
+                        <div *ngIf="Firstname?.invalid && (Firstname?.dirty || Firstname?.touched)"
+                          class="firstnameValidateError">
+                          <div *ngIf="Firstname?.errors?.required" class="firstnameError-1">
+                            Firstname shouldn't be empty
+                          </div>
+                          <div *ngIf="Firstname?.errors?.maxlength" class="firstnameError-2">
+                            Firstname shouldn't exceed 30 characters
+                          </div>
+                          <div *ngIf="Firstname?.errors?.minlength" class="firstnameError-3">
+                            Firstname atleast have 2 characters
+                          </div>
+                          <div *ngIf="Firstname?.errors?.shouldNotBeNumber" class="firstnameError-4">
+                            Enter valid name - Only letters allowed
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="input-Secondname" formControlName="Lastname" placeholder="Doe">
+                      <div *ngIf="Lastname?.invalid && (Lastname?.dirty || Lastname?.touched)" class="secondnameValidateError">
+                        <div *ngIf="Lastname?.errors?.required">
+                          Lastname shouldn't be empty
+                        </div>
+                        <div *ngIf="Lastname?.errors?.maxlength" class="secondnameError-2">
+                          Lastname shouldn't exceed 30 characters
+                        </div>
+                        <div *ngIf="Lastname?.errors?.minlength" class="secondnameError-3">
+                          lastname atleast have 2 characters
+                        </div>
+                        <div *ngIf="Lastname?.errors?.shouldNotBeNumber" class="secondnameError-4">
+                          Enter valid name - Only letters allowed
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="profile-Gender-DOB-Label">
+                  <label class="col-6 text-Gender">Gender</label>
+                  <label class="col-6 text-DateOfBirth">Date Of Birth</label>
+                </div>
+                <div>
+                  <div class="profile-GenderRadioBtn-Date-Input">
+                    <div class="row">
+          
+                      <div class="col-2">
+                        <label class="textRadio-Male container1" for="genderRadioMale"
+                          [ngClass]="{'active-font':radioGenderType === 'Male'}" id="active-font"> Male
+                          <input type="radio" name="Gender" class="inputRadio-Male" (click)="changeRadioFont(1)"
+                            id="genderRadioMale" value="Male" formControlName="Gender">
+                          <div class="checkmark radioSymbol-1"></div>
+                        </label>
+                      </div>
+                      <div class="col-2">
+                        <label class="textRadio-Female container1" for="genderRadioFemale"
+                          [ngClass]="{'active-font':radioGenderType === 'Female'}" id="active-font"> Female
+                          <input type="radio" name="Gender" class="inputRadio-Female" (click)="changeRadioFont(2)"
+                            id="genderRadioFemale" value="Female" formControlName="Gender">
+                          <div class="checkmark radioSymbol-2"></div>
+                        </label>
+                      </div>
+                      <div class="col-2">
+                        <label class="textRadio-Others container1" for="genderRadioOthers"
+                          [ngClass]="{'active-font':radioGenderType === 'Others'}" id="active-font"> Others
+                          <input type="radio" name="Gender" class="inputRadio-Others" (click)="changeRadioFont(3)"
+                            id="genderRadioOthers" value="Others" formControlName="Gender">
+                          <div class="checkmark radioSymbol-3"></div>
+                        </label>
+          
+                      </div>
+                      <div class="col-6">
+                        <input type="date" max="9999-12-31" class="inputBox-Date" formControlName="DateOfBirth">
+                        <div *ngIf="DateOfBirth?.invalid && (DateOfBirth?.touched || DateOfBirth?.dirty)">
+                          <div *ngIf="DateOfBirth?.errors?.required" class="DateOfBirth-Error">
+                            DOB is must for your profile
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-6 text-EmailId">Email ID</label>
+                  <label class="col-6 text-ContactNumber">Contact Number</label>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <input type="email" class="input-Email" formControlName="EmailId">
+                    <div *ngIf="EmailId?.invalid && (EmailId?.dirty || EmailId?.touched)" class="emailIdValidateError">
+                      <div *ngIf="EmailId?.errors?.required" class="emailIdError-1">
+                        EmailId should not be empty
+                      </div>
+                      <div *ngIf="EmailId.errors?.email" class="emailIdError-1">
+                        Enter valid EmailId
+                      </div>
+                      <div *ngIf="EmailId.errors?.pattern" class="emailIdError-1">
+                        EmailId must have email format
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <input type="tel" class="input-ContactNumber" formControlName="ContactNumber">
+                    <div *ngIf="ContactNumber?.invalid && (ContactNumber?.dirty || ContactNumber?.touched)"
+                      class="contactNumberValidateError">
+                      <div *ngIf="ContactNumber?.errors?.required" class="contactNumberError-1">
+                        contact number shouldn't be empty
+                      </div>
+                      <div *ngIf="ContactNumber?.errors?.minlength" class="contactNumberError-2">
+                        Contact number atleast have 8 numbers
+                      </div>
+                      <div *ngIf="ContactNumber?.errors?.maxlength" class="contactNumberError-3">
+                        Contact number shouldn't exceed 15 numbers
+                      </div>
+                      <div *ngIf="ContactNumber?.errors?.pattern" class="contactNumberError-4">
+                        phone number must be a number
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-6 text-PresentAddress">Present Address</label>
+                  <label class="col-6 text-permanentAddress">Permanent address</label>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <textarea class="input-PresentAddress" #DemoPresentAddress formControlName="PresentAddress"></textarea>
+                    <div *ngIf="PresentAddress?.invalid && (PresentAddress?.dirty || PresentAddress?.touched)"
+                      class="presentAddressValidateError">
+                      <div *ngIf="PresentAddress?.errors?.required" class="presentAddressError-1">
+                        Present address shouln't be empty
+                      </div>
+                      <div *ngIf="PresentAddress?.errors?.minlength" class="presentAddressError-2">
+                        Address atleast have 10 characters
+                      </div>
+                      <div *ngIf="PresentAddress?.errors?.maxlength" class="presentAddressError-3">
+                        Address shouldn't exceed 200 characters
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <textarea class="input-PermanentAddress" formControlName="PermanentAddress"> </textarea>
+                    <div *ngIf="PermanentAddress?.invalid && (PermanentAddress?.dirty || PermanentAddress?.touched)"
+                      class="permanentAddressValidateError">
+                      <div *ngIf="PermanentAddress?.errors?.required" class="permanentAddressError-1">
+                        Permanent address shouldn't be empty
+                      </div>
+                      <div *ngIf="PermanentAddress?.errors?.minlength" class="permanentAddressError-2">
+                        Address atleast have 10 characters
+                      </div>
+                      <div *ngIf="PermanentAddress?.errors?.maxlength" class="permanentAddressError-3">
+                        Address shouldn't exceed 200 characters
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label class="checkBoxContainer">
+                      <input type="checkbox" class="col-7 input-AddressCheckBox tickMark" formControlName="AddressCheckBox"
+                        (change)="transferAddress($event)">
+                      <span class="Tickmark"></span>
+                      <label class="col-1 text-SameAddress">Same as Present Address</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-12 text-UpoadPhoto"> Upload Photo</label>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <input type="file" class="input-UploadPhoto" id="photoUploadBox" accept=".JPEG,.JPG,.PNG"
+                      (change)="profilePhoto($event)">
+                    <label for="photoUploadBox" class="browseLabelForFileBox">Browse...<img class="fileImageSVG"
+                        src="assets\img\file.svg"></label>
+                    <div *ngIf="UploadPhoto?.invalid && (UploadPhoto?.dirty || UploadPhoto?.touched)"
+                      class="uploadPhotoValidateError">
+                      <div *ngIf="UploadPhoto?.required" class="uploadPhotoError-1">
+                        photo required for profile
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row pregressSection" id="progressSection">
+                    <div class="col-2 progressBarLabel" id="progressBarLabel">
+                      File Type : {{profilePhotoFileType | uppercase}}
+                    </div>
+                    <div class="progress">
+                      <div class="col-3 progress-bar progress-bar-primary fileUploadProgressBar" id="fileUploadProgressBar" role="progressbar"
+                      attr.aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100"
+                      [ngStyle]="{width: percentage+'%'}">
+                      </div>
+                  </div>
+                    <div class="col-1 percentageSectionForFileUpload" id="percentageSectionForFileUpload">{{percentage}}%</div>
+                  </div>
+                </div>
+                <div>
+                  <button class="profile-SaveBtn" data-bs-toggle="modal" data-bs-target="#profileFormSaved"
+                    [disabled]="!profile_Form_Data.valid" (click)="setToLocalStorage()">Save</button>
+                  <button class="profile-NextBtn" [disabled]="!profile_Form_Data.valid" type="submit"
+                    (click)="submitUserProfile()">Next</button>
+                </div>
+              </div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates necessitatibus facilis consectetur quos odio qui molestias id consequatur! Dolor atque cum ab illum, neque delectus similique in exercitationem repudiandae nisi reprehenderit consequuntur sapiente placeat tempora aut natus fugit accusantium est et saepe vel eum quasi aliquam. Consequatur dignissimos dolorem, earum ipsam soluta dolores non consequuntur rerum cupiditate nobis esse veniam aliquid, assumenda, facere architecto modi commodi molestiae corporis illo exercitationem praesentium. Necessitatibus eligendi atque fugit libero nisi incidunt praesentium enim cupiditate consequatur ducimus. Voluptate, harum, exercitationem amet ipsum ea dolore perferendis earum incidunt excepturi possimus accusamus. Nisi, laborum error omnis aliquid illo iste, voluptates quo voluptate veniam placeat, consequuntur sint suscipit ab. Quae iusto eaque nesciunt provident molestias placeat aliquid obcaecati delectus? Corporis excepturi illum sint? Repellat repellendus a soluta aliquam laboriosam possimus explicabo laudantium tempore neque saepe? Laboriosam delectus corrupti ea adipisci hic, fuga aperiam voluptatem nulla dicta voluptate culpa nostrum vitae sequi dolores! Aliquid nam molestias voluptates est delectus ut culpa deleniti sed aspernatur praesentium, magni officia consequuntur. Labore necessitatibus numquam hic unde quae corporis iusto id repellat, dolore earum pariatur vitae tenetur cum nulla quidem totam iste dolores rerum natus tempora non accusamus excepturi architecto aliquam. Repellendus accusantium commodi possimus, amet quam nobis vitae, modi quae quaerat consectetur unde totam maxime odit aliquam illo fugit vero temporibus? Pariatur cumque minima totam quisquam blanditiis. Labore maxime minus repellat atque soluta vero ea nostrum aspernatur natus id, libero neque maiores sequi esse impedit, eligendi aliquam tempora rerum voluptatem cum debitis hic mollitia quo! Rerum beatae doloremque tempora, harum voluptatibus consectetur reprehenderit numquam incidunt totam cumque necessitatibus. Illum, consequuntur. Dolor commodi velit dignissimos molestiae, ex quas explicabo possimus. Id aspernatur minima perferendis soluta ab, itaque quae quisquam modi, distinctio ad debitis aut aliquam veniam omnis assumenda quas facilis non excepturi ipsa harum, nihil magnam! Libero unde doloremque voluptatum animi. Exercitationem voluptate rerum tempore obcaecati placeat et, quod neque repudiandae excepturi quos quia maiores est accusamus quae. Odio non, vel odit velit modi tempore doloremque ex quasi doloribus laboriosam reprehenderit perferendis vero sapiente veritatis voluptates. Tenetur soluta deleniti ex quos reprehenderit recusandae, ipsa reiciendis, asperiores architecto cum porro eum cupiditate odit incidunt aut dicta accusamus molestiae nostrum dolorem nisi ratione. Corrupti nulla sed voluptatum aliquam exercitationem, nobis amet itaque harum quasi ut voluptate ducimus magnam assumenda modi explicabo officia similique tempore error labore facere vitae. Consequuntur minima aspernatur ullam aperiam laudantium repellendus dolores suscipit mollitia! Debitis enim quibusdam pariatur nihil tenetur minima ut odio accusantium expedita qui fugit similique dolorum, eligendi rem mollitia exercitationem adipisci illum natus repudiandae ipsum eius magni? Rerum nemo ipsam odio dicta magnam cupiditate quisquam placeat dignissimos hic explicabo suscipit quibusdam natus nam eius iste, ratione consectetur, fugit veritatis eveniet, temporibus sint. Necessitatibus cupiditate praesentium et. Molestias illum illo debitis temporibus dignissimos cupiditate praesentium nulla consectetur vel natus quibusdam libero numquam, odio non. Neque delectus mollitia asperiores doloribus nam nihil! Repellendus eaque dolores quasi, cumque aut asperiores expedita accusantium rem sapiente hic natus commodi, provident impedit repellat magnam. Doloribus ipsa dolor, inventore nobis, nesciunt magni maxime ipsam voluptatem optio quibusdam magnam. Quaerat quidem pariatur fuga eaque consectetur excepturi doloribus, eveniet aspernatur placeat deleniti, accusantium distinctio praesentium, sunt quibusdam veritatis dolorem debitis eius deserunt voluptatum. Porro, cum, minus at doloremque ipsum vero suscipit odio beatae adipisci similique, doloribus consectetur rem. Voluptas, deserunt iure recusandae nesciunt hic voluptatem placeat harum cum id assumenda dolorem, iste impedit! Minima autem consectetur facilis. Odio debitis voluptate harum quas sunt libero accusantium corrupti sapiente atque beatae, voluptatem amet culpa, odit omnis hic sed quo praesentium non minima perspiciatis vitae labore! Voluptates minus cupiditate maxime provident repellat hic modi, quae veritatis sint itaque odio non repudiandae. Ex distinctio ratione facere temporibus fuga sequi nostrum earum eaque laudantium hic doloremque possimus omnis, deserunt laborum et quod velit consequatur architecto dolores! Modi assumenda quae ipsam, dolore, accusantium aperiam tenetur dicta reiciendis dolorem repellendus sed, eius cum at? Ut voluptatibus recusandae, eius quae natus libero pariatur facere dolore illo neque reiciendis ipsum consequuntur! Eveniet id qui nihil debitis aspernatur alias! Vero porro eligendi nulla optio nam architecto, natus tenetur quaerat et illo, unde, in odit odio? Natus reiciendis unde cupiditate molestias quisquam, mollitia porro voluptate harum. Corporis debitis quo non qui id ipsum sit enim ipsa! Maiores iure recusandae amet aliquid eius esse enim repellat natus alias! Tempore, nisi architecto ipsa porro reprehenderit id, dignissimos commodi sapiente animi deleniti, in consequatur error quo illum nam necessitatibus. Temporibus tempore voluptates tenetur ad quaerat mollitia fugiat recusandae repellat delectus aliquam asperiores vitae voluptatum possimus fuga exercitationem dolore, molestias ipsa cupiditate, labore doloribus laboriosam! Sapiente suscipit, dolorum aliquid veniam ratione voluptatem aliquam! Molestias, accusantium. Corrupti voluptatem earum reiciendis nihil? Voluptates ad nisi, earum sint amet optio dolore, suscipit reprehenderit rerum aperiam quis in iure ducimus odit assumenda aliquid possimus praesentium voluptas eum sapiente adipisci quae? Magni tempora ad sunt ratione sapiente cumque, cupiditate soluta architecto iure cum facere quisquam non aliquid dignissimos fugit deleniti nobis nesciunt et in nemo similique id debitis, enim nihil. Odit, libero, recusandae nisi, aut cupiditate totam consequuntur debitis culpa sequi ullam rerum deleniti? Voluptates, exercitationem. Error cum laborum ipsum impedit numquam pariatur esse vero suscipit, illo, sint nemo nulla mollitia ut dicta ducimus aperiam hic fuga libero sapiente? Eveniet et molestias nemo harum corporis quae deleniti, delectus animi vel vero fuga saepe, quaerat voluptatem eum quod sapiente. Ab, consectetur temporibus hic aliquid sint ipsam ipsa reprehenderit aut eligendi nihil quos obcaecati odio vero saepe id adipisci cupiditate sapiente assumenda animi aperiam! Obcaecati ut quisquam voluptatum accusamus, iste illum eius consectetur nihil necessitatibus consequuntur ratione, rerum error? Repellat quia quibusdam dolorem modi magni nobis perspiciatis repudiandae! Quasi, pariatur magnam quisquam atque voluptas debitis eius architecto eligendi voluptates, ex recusandae magni doloremque, illo vel perspiciatis rerum exercitationem ut aliquid sed excepturi. Quibusdam porro accusantium, neque quidem tenetur sit rem fugiat necessitatibus, dolores animi sed praesentium quisquam qui autem accusamus? Recusandae expedita laboriosam consequuntur corrupti natus, dolorem explicabo optio corporis officia accusantium architecto aut doloremque minima harum vel esse, quos, possimus doloribus dolore. Optio excepturi repudiandae sunt repellat quasi tempora reprehenderit possimus. Corporis, vel amet nihil veniam expedita excepturi repudiandae quas, libero rem eaque quis facere praesentium, sunt ipsam illum deleniti earum vero accusamus sed! Porro accusamus optio repudiandae quae placeat voluptatibus pariatur non unde amet tempora, aliquam quo in laboriosam nisi qui! Obcaecati recusandae fugit molestias sapiente hic vel consequuntur labore, incidunt et at doloribus enim fuga quia, voluptatibus expedita veniam optio? Hic quae odio, praesentium tenetur in suscipit fuga provident perspiciatis repellendus accusamus, consequuntur dolorum veritatis nihil dolores molestias doloribus vel itaque pariatur sint sunt, exercitationem ipsam. Reiciendis officia eius veniam provident consequuntur, sint maiores inventore nostrum rerum cum odio fuga deleniti voluptate? Aspernatur assumenda magni ipsa. Id corporis assumenda aspernatur iste exercitationem similique sunt provident necessitatibus asperiores nulla cupiditate quidem, dignissimos, consectetur veniam, quod repellat incidunt quia. Adipisci quidem quos eveniet, aperiam fuga nam molestias sit numquam nihil perferendis, sequi rem tenetur velit temporibus nemo debitis. Accusamus expedita quae consequatur, recusandae sint assumenda exercitationem eligendi ratione reiciendis tempore, provident nesciunt est quis. Perferendis accusantium necessitatibus ullam laboriosam quas similique suscipit repudiandae, nihil, mollitia temporibus commodi tempore rerum eaque sit illo optio laudantium officia consectetur deserunt hic facere veniam doloremque! Perferendis dolorum fugit suscipit, hic nesciunt corrupti inventore blanditiis similique voluptatibus, assumenda, atque explicabo ducimus fugiat doloribus consectetur ad ipsum. Nobis quis aliquid exercitationem, animi cumque repudiandae molestias nemo culpa, autem deserunt debitis dignissimos hic, doloremque vel necessitatibus ipsum id? Deserunt iure dolorem dolorum repellat odio, voluptatem ipsam nesciunt, porro cupiditate saepe dolore voluptatum modi, nulla minus. Ab ipsam repellendus, laboriosam, a ipsa quibusdam magni assumenda quos eius culpa veritatis. Repudiandae sit ad enim itaque molestiae minima labore optio. Laudantium laboriosam perspiciatis aliquam doloremque impedit, voluptas maiores earum, vero aperiam aliquid harum! Ut, neque iste architecto deserunt nihil nulla, laboriosam modi praesentium et consequuntur magni necessitatibus reiciendis esse amet tempora ratione laudantium possimus quia eaque veniam. Minus, aspernatur? Maxime aliquam, dicta totam repellat laudantium molestias, impedit, ullam blanditiis soluta error veniam omnis similique obcaecati vero veritatis! Nemo quaerat totam quisquam, corrupti qui omnis et explicabo error nesciunt! Molestiae, consectetur repellendus vitae, perferendis, laboriosam in consequatur placeat saepe iste praesentium illum voluptate amet excepturi possimus soluta? Dolorum nam, recusandae numquam tenetur, deserunt nihil vero nostrum culpa blanditiis eligendi ipsum voluptates sapiente maiores dignissimos impedit quis placeat a? Commodi nobis quis libero. Dolorum, corrupti excepturi cupiditate laudantium quis repudiandae nulla molestiae libero quae saepe! Sit tempore nobis, voluptatum impedit, fugiat quia laborum fugit animi repellat enim possimus. Qui dolore distinctio ipsum amet nam dolores sed fuga placeat assumenda hic! Repellendus illo ratione inventore culpa officiis non ipsam cum sunt, quasi sint dolorum aut, ipsa tempore quidem, ab quas et. In id ut distinctio nobis, perspiciatis ipsa molestiae quod omnis culpa ea dolore fuga, deleniti autem ex illum repellendus sapiente veritatis. Earum corporis ipsam obcaecati non quisquam culpa id vel ea fugit dicta animi consequuntur maiores, distinctio similique nostrum labore iste odio dolore officia doloremque ad. Expedita nesciunt incidunt excepturi, illum, eos beatae enim odit animi non, velit error possimus eum dolorum perferendis ducimus atque optio labore. In officia voluptatum aliquam commodi consectetur rerum distinctio illo facilis illum non, at expedita qui, quae voluptates alias recusandae ratione. Consectetur aut culpa corporis dignissimos eum aliquam officia! Culpa illo ducimus nulla natus corporis voluptatem, ex, soluta officia dolorem, sit impedit nobis quia dolorum iure autem officiis delectus eius quod cumque non numquam eligendi. Pariatur quis dolores ea non quas minus vitae magni tempora impedit! Natus quisquam itaque ipsam voluptatibus eveniet rem et! Obcaecati, ipsum! Illum, reprehenderit. Veritatis, laboriosam. Voluptatum, similique cumque quos at tempore suscipit magni soluta, beatae deserunt consequatur placeat dicta. Beatae dicta magni quia sapiente, quas nihil rerum maxime modi quidem, laborum omnis placeat enim? Sint, est omnis autem nemo reiciendis similique cupiditate maxime odit nisi cum reprehenderit non? Laboriosam repudiandae illo veritatis iure itaque corporis vitae deserunt odio! Nihil facere dolorum fuga fugit numquam, modi quia tempora ex sequi recusandae voluptatibus? Est nisi excepturi quod illo sit dolore aspernatur reiciendis quaerat maxime exercitationem numquam modi a optio ullam culpa iusto laborum nostrum perspiciatis vero pariatur, sequi nihil ex dolorem? Laborum blanditiis modi dignissimos officiis est aspernatur? Dicta voluptates, at nam facilis velit culpa adipisci alias cumque iure sed similique placeat nemo doloribus? Iure, nesciunt perspiciatis consectetur, voluptatibus deserunt suscipit eos ex omnis aspernatur architecto atque maiores vitae dolore ut, necessitatibus molestiae quas qui! Nemo esse tempora exercitationem odio ex nulla asperiores cupiditate cumque, quibusdam facere illum ipsum consequatur mollitia culpa, harum temporibus. Quia repellendus quos non facilis sit dolor, sapiente vero. Explicabo nesciunt ex quaerat consequuntur. Temporibus quo placeat quam tempore ad voluptatibus, amet nobis vel saepe. Distinctio omnis est eveniet asperiores voluptatum magni, necessitatibus et odit maxime totam, sed at, soluta dolorum magnam? Recusandae aperiam non assumenda neque corporis natus odit similique magni at necessitatibus maiores quam optio nihil, doloribus ex perferendis accusantium est dolores quibusdam expedita reprehenderit autem corrupti. Illum et dolor explicabo officia iusto? Odio repellat architecto ex quas. Dignissimos a obcaecati, provident repellendus quaerat unde laborum est natus excepturi similique, illo neque adipisci impedit pariatur, aliquam iusto quisquam ducimus sapiente quod dolorem vel deserunt. Quae libero reiciendis eius sapiente assumenda ducimus ratione voluptatum quas harum eum alias, asperiores aperiam corrupti dicta magnam, deserunt obcaecati. Ipsa, sapiente nam similique at corrupti ipsum. Asperiores, sequi consectetur veniam consequatur recusandae laboriosam minus tempora nisi cumque ducimus totam ratione voluptatibus quas, cupiditate at! Ad, nobis, alias cumque vitae nisi eaque, placeat debitis totam quidem perferendis pariatur obcaecati. Quam asperiores optio iure molestiae odit minus doloremque perspiciatis quis laudantium provident, beatae distinctio rerum quibusdam quas eos a commodi. Quod, sint. Earum obcaecati suscipit minus eligendi eos nisi modi quia, ipsam dolore quasi ipsa! Cupiditate inventore sapiente, at praesentium, beatae cumque obcaecati maxime alias officia animi delectus laudantium voluptatem ullam a consequatur earum assumenda eveniet temporibus aut quisquam adipisci. Omnis perferendis necessitatibus at tempore laudantium maxime praesentium reprehenderit soluta iusto facilis, perspiciatis quisquam explicabo cum numquam aliquid voluptates impedit enim.
+            </div>
+    </div>
+</body>
+</html>
